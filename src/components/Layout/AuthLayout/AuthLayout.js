@@ -4,7 +4,7 @@ import './AuthLayout.sass';
 function AuthLayout({ children }) {
     return (
         <>
-            <div className="auth-layout">{children}</div>
+            <div className="auth-layout">{children} </div>
         </>
     );
 }

@@ -14,9 +14,8 @@ export default {
     isPrivate: true,
     component: lazy(async () => {
         await initModules([featureModule], 'app');
-        return import('./pages/OnePage');
+        return import('./pages/HomePage');
     }),
 };
 
-export const childRoutes = [
-];
+export const childRoutes = [];

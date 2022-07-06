@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { SIDER_COLLAPSE } from 'app-configs';
 import AppHeader from '../AppHeader';
-
+import Footer from '../AppFooter';
 const { Header, Sider, Content } = Layout;
 
 export function getNavItem(label, key, icon, children, type) {
@@ -73,10 +73,10 @@ function AppLayout({ children, match }) {
 
     return (
         <Layout>
-            <Sider
+            {/* <Sider
                 style={{
                     border: 'none',
-                    minHeight: '100vh',
+                    
                 }}
                 trigger={null}
                 collapsible
@@ -115,29 +115,21 @@ function AppLayout({ children, match }) {
                             onClick={onClickSliderMenu}
                         />
                     </div>
-                    <div
-                        style={{
-                            color: '#fff',
-                            textAlign: 'center',
-                            marginBottom: '15px',
-                        }}
-                    >
-                        © BKLab {new Date().getFullYear()}
-                    </div>
+                    
                 </div>
-            </Sider>
+            </Sider> */}
             <Layout>
                 <AppHeader />
                 <Content
                     style={{
                         margin: '24px 16px',
                         padding: 24,
-                        minHeight: 280,
-                        position: 'relative',
+                        height: 'calc( 100vh - 152px )',
                     }}
                 >
                     {children}
                 </Content>
+                <Footer />
             </Layout>
         </Layout>
     );
