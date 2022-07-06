@@ -2,11 +2,10 @@ import { Avatar, Dropdown, Menu } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import React from 'react';
 import { getNavItem } from 'components/Layout/AppLayout/AppLayout';
-import { LogoutOutlined } from '@ant-design/icons';
-import hustLogo from 'assets/images/header/hust-logo.jpeg';
+import { LogoutOutlined, BellOutlined, UserOutlined, CaretDownOutlined } from '@ant-design/icons';
 import { TOKEN_KEY } from 'app-configs';
 import { useSelector } from 'react-redux';
-
+import './Header.css';
 const userDropdownItems = [getNavItem('Đăng xuất', '/auth/logout', <LogoutOutlined />, null)];
 
 const onClickUserAvatar = (item) => {
@@ -33,30 +32,19 @@ export default function (props) {
                 alignItems: 'center',
             }}
         >
-            <div className="flex-center">
-                <div
-                    style={{
-                        position: 'relative',
-                        width: '48px',
-                        height: '64px',
-                    }}
-                >
-                    <span className="b4E__text">
-                        <div>B4E</div>
-                        <div>B4E</div>
-                    </span>
-                </div>
-                <span
-                    style={{
-                        fontWeight: 'bold',
-                        fontSize: '22px',
-                        marginLeft: '4px',
-                        marginTop: '4px',
-                        userSelect: 'none',
-                    }}
-                >
-                    Manager
+            <div className="flex-center" style={{}}>
+                <span>
+                    <div style={{ fontWeight: 'bold', fontSize: '20px', color: '#1558BE' }}>
+                        Sổ tiêm chủng
+                    </div>
                 </span>
+
+                <nav style={{ paddingLeft: '15px' }}>
+                    <a>LỊCH TIÊM</a>
+                    <a>KIẾN THỨC</a>
+                    <a>DỊCH VỤ</a>
+                    <a>Câu hỏi nổi bật</a>
+                </nav>
             </div>
 
             <div
@@ -71,17 +59,27 @@ export default function (props) {
                         marginRight: '10px',
                         fontWeight: '550',
                         userSelect: 'none',
+                        width: '100px',
+                        justifyContent: 'space-around',
                     }}
                 >
                     {userDetail?.name}
                 </div>
+
+                <BellOutlined style={{ fontSize: '32px' }} />
+                <Avatar size={32}>
+                    <UserOutlined />
+                </Avatar>
+
+                <div>Trung Hậu</div>
                 <Dropdown
                     overlay={<Menu items={userDropdownItems} onClick={onClickUserAvatar} />}
                     placement="bottomRight"
                     trigger={['click']}
                     arrow={{ pointAtCenter: true }}
+                    className="hover-pointer"
                 >
-                    <Avatar size={42} src={hustLogo} className="hover-pointer" />
+                    <CaretDownOutlined />
                 </Dropdown>
             </div>
         </Header>

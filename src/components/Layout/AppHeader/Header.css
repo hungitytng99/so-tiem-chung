@@ -1,0 +1,9 @@
+a {
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #1558be;
+}
