@@ -72,66 +72,19 @@ function AppLayout({ children, match }) {
     }, [selectedSider]);
 
     return (
-        <Layout>
-            {/* <Sider
+        <>
+            <AppHeader />
+            <Content
                 style={{
-                    border: 'none',
-                    
+                    margin: '24px 16px',
+                    padding: 24,
+                    height: 'calc( 100vh - 152px )',
                 }}
-                trigger={null}
-                collapsible
-                collapsed={collapsed}
             >
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        height: '100%',
-                    }}
-                >
-                    <Link
-                        to={'/'}
-                        style={{ display: 'block', padding: '8px', marginBottom: '6px' }}
-                    >
-                        <Image
-                            className="icon-home-page"
-                            width="100%"
-                            style={{
-                                objectFit: 'contain',
-                                maxHeight: '70px',
-                            }}
-                            src={collapsed ? hustLogo : hustLogoNgang}
-                            preview={false}
-                        />
-                    </Link>
-                    <div style={{ marginTop: '10px', flex: '1' }}>
-                        <Menu
-                            mode="inline"
-                            theme="dark"
-                            defaultOpenKeys={['account']}
-                            selectedKeys={[selectedSider]}
-                            items={sliderItems}
-                            onClick={onClickSliderMenu}
-                        />
-                    </div>
-                    
-                </div>
-            </Sider> */}
-            <Layout>
-                <AppHeader />
-                <Content
-                    style={{
-                        margin: '24px 16px',
-                        padding: 24,
-                        height: 'calc( 100vh - 152px )',
-                    }}
-                >
-                    {children}
-                </Content>
-                <Footer />
-            </Layout>
-        </Layout>
+                {children}
+            </Content>
+            <Footer />
+        </>
     );
 }
 
