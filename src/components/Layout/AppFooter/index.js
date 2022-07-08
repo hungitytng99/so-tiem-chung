@@ -7,7 +7,7 @@ export default function Footer() {
                 color: '#fff',
                 textAlign: 'center',
                 height: '40px',
-                background: 'blue',
+                background: '#4EA0EB',
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',

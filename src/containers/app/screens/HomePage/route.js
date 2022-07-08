@@ -18,4 +18,23 @@ export default {
     }),
 };
 
-export const childRoutes = [];
+export const childRoutes = [
+    {
+        path: '/detail-child',
+        exact: true,
+        isPrivate: true,
+        component: lazy(async () => {
+            await initModules([homePageModule], 'app');
+            return import('./pages/detailUser');
+        }),
+    },
+    {
+        path: '/injection-history',
+        exact: true,
+        isPrivate: true,
+        component: lazy(async () => {
+            await initModules([homePageModule], 'app');
+            return import('./pages/InjectionHistory');
+        }),
+    },
+];
