@@ -47,7 +47,6 @@ function AppLayout({ children, match }) {
                     margin: '24px 16px',
                     padding: 20,
                     height: 'calc( 100vh - 152px )',
-                    overflowX: 'auto',
                 }}
             >
                 {children}
