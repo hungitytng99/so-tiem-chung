@@ -6,6 +6,33 @@ import iconDiagram from 'assets/images/sotiemchung/264234976_752854762737773_709
 import iconNutrition from 'assets/images/sotiemchung/273058511_326665202806471_8882966341918769407_n.png';
 import { SolutionOutlined, HomeOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import News from '../News';
+const news = [
+    {
+        title: 'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
+        description:
+            'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
+        author: 'tiemchungmorong.com',
+        time: 'Cách đây 3 năm',
+        imgSrc: 'https://careplusvn.com/files/chich-ngua-HPV-2.jpg',
+    },
+    {
+        title: 'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
+        description:
+            'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
+        author: 'tiemchungmorong.com',
+        time: 'Cách đây 3 năm',
+        imgSrc: 'https://careplusvn.com/files/chich-ngua-HPV-2.jpg',
+    },
+    {
+        title: 'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
+        description:
+            'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
+        author: 'tiemchungmorong.com',
+        time: 'Cách đây 3 năm',
+        imgSrc: 'https://careplusvn.com/files/chich-ngua-HPV-2.jpg',
+    },
+];
 const detailUser = () => {
     return (
         <Row gutter={14} style={{ height: '100%' }}>
@@ -113,7 +140,28 @@ const detailUser = () => {
             </Col>
 
             <Col span={6}>
-                <div style={{ height: '400px', border: '1px solid' }}>kien thuc</div>
+                <div
+                    style={{
+                        fontSize: '36px',
+                        fontWeight: 700,
+                        lineHeight: ' 42.19px ',
+                        height: '55px',
+                    }}
+                >
+                    Kiến thức
+                </div>
+                {news.map((myNew, index) => {
+                    return (
+                        <News
+                            key={index}
+                            title={myNew.title}
+                            description={myNew.description}
+                            author={myNew.author}
+                            time={myNew.time}
+                            imgSrc={myNew.imgSrc}
+                        ></News>
+                    );
+                })}
             </Col>
         </Row>
     );
