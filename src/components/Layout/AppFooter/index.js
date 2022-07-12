@@ -12,6 +12,7 @@ export default function Footer() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                position: 'fixed',
             }}
         >
             <span>© Hệ Thống Tiêm Chủng Quốc Gia</span>
