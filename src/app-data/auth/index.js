@@ -5,10 +5,10 @@ import { GET } from 'app-data/fetch';
 
 export const apiLogin = async (params) => {
     try {
-        const response = await POST('/auth/institution/login', params, { isFullPath: false });
+        const response = await POST('/api/v1/auth/login', params, { isFullPath: false });
         return {
             state: REQUEST_STATE.SUCCESS,
-            data: response,
+            data: response.result,
         };
     } catch (error) {
         console.log('error', error);
@@ -22,16 +22,10 @@ export const apiLogin = async (params) => {
 
 export const apiProfile = async () => {
     try {
-        const response = await GET(
-            '/institution',
-            {
-                token: localStorage.getItem(TOKEN_KEY),
-            },
-            { isFullPath: false },
-        );
+        const response = await GET('/api/v1/me', {}, { isFullPath: false });
         return {
             state: REQUEST_STATE.SUCCESS,
-            data: response,
+            data: response.result,
         };
     } catch (error) {
         console.log('error', error);

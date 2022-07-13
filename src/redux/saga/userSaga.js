@@ -18,29 +18,12 @@ function* handleLogin({ type, payload }) {
     try {
         const response = yield call(apiLogin, payload);
         if (response.state === REQUEST_STATE.SUCCESS) {
-            localStorage.setItem(TOKEN_KEY, response.data.accessToken);
+            localStorage.setItem(TOKEN_KEY, response.data.token);
             const profile = yield call(apiProfile);
+            console.log('profile: ', profile);
             yield put(LOGIN_SUCCESS(profile.data));
         } else {
             yield put(LOGIN_FAIL());
-        }
-    } catch (error) {
-        console.log('error: ', error);
-    }
-}
-
-function* updateDocumentStoreAddress({ type, payload }) {
-    const { documentStoreAddress } = payload;
-    try {
-        const response = yield call(apiUpdateInstitution, { documentStoreAddress });
-        if (response.state === REQUEST_STATE.SUCCESS) {
-            yield put(
-                UPDATE_DOCUMENT_STORE_ADDRESS_SUCCESS({
-                    data: documentStoreAddress,
-                }),
-            );
-        } else {
-            yield put(UPDATE_DOCUMENT_STORE_ADDRESS_FAIL());
         }
     } catch (error) {
         console.log('error: ', error);
@@ -67,6 +50,5 @@ function* checkValidToken({ type, payload }) {
 
 export default function* userSaga() {
     yield takeLatest(LOGIN().type, handleLogin);
-    yield takeLatest(UPDATE_DOCUMENT_STORE_ADDRESS().type, updateDocumentStoreAddress);
     yield takeLatest(CHECK_VALID_TOKEN().type, checkValidToken);
 }

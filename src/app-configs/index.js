@@ -16,7 +16,7 @@ export const REQUEST_STATE = {
 
 // key store in localStorage, Cookies, Session
 export const I18LANGUAGE_KEY = 'i18nextLng';
-export const TOKEN_KEY = 'authencation_COBGBRPIIP';
+export const TOKEN_KEY = 'authencation_so_tiem_chung';
 export const SIDER_COLLAPSE = 'siderCollapse';
 
 export const ACTION_TYPE = {

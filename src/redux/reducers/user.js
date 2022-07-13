@@ -1,3 +1,4 @@
+import { TOKEN_KEY } from 'app-configs';
 import { REQUEST_STATE } from 'app-configs';
 import { UPDATE_DOCUMENT_STORE_ADDRESS_SUCCESS } from 'redux/actions/user';
 import { RESET_UPDATE_DOCUMENT_STORE_ADDRESS } from 'redux/actions/user';
@@ -84,6 +85,7 @@ export default function userReducer(state = defaultState, action) {
             };
         }
         case CHECK_VALID_TOKEN_FAIL().type: {
+            localStorage.removeItem(TOKEN_KEY);
             return {
                 ...state,
                 profile: null,

@@ -27,7 +27,7 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #3399ff;
+    background-color: #5dbb13;
     transition: 0.4s;
 }
 
@@ -44,7 +44,7 @@
     left: 0;
     width: 2px;
     height: 0;
-    background-color: #3399ff;
+    background-color: #5dbb13;
     transition: 0.4s;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .auth__header--icon {
-    background-color: rgb(25, 118, 210);
+    background-color: #5dbb13;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -141,7 +141,7 @@
     line-height: 45px;
     height: 48px;
     border-radius: 5px;
-    background-color: rgb(25, 118, 210);
+    background-color: #5dbb13;
     font-size: 14px;
     color: white;
     text-transform: uppercase;
@@ -205,22 +205,8 @@
 
 .auth__form.--welcome {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 0px 20px;
-}
-
-.auth__welcome {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.auth__welcome-blockchain {
-    width: 50px;
-    margin-top: 12px;
 }
 
 .auth__error {
