@@ -35,10 +35,6 @@ function AppLayout({ children, match }) {
         return currentRouter?.pathname;
     }
 
-    useEffect(() => {
-        console.log('selectedSider: ', selectedSider);
-    }, [selectedSider]);
-
     return (
         <>
             <AppHeader />
