@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Row } from 'antd';
 import icon from 'assets/images/sotiemchung/250796959_438751234280879_3710454219591718876_n.png';
 import iconHistory from 'assets/images/sotiemchung/290821183_438571107896215_6949142220786622021_n.png';
@@ -7,6 +7,9 @@ import iconNutrition from 'assets/images/sotiemchung/273058511_326665202806471_8
 import { SolutionOutlined, HomeOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import News from '../News';
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_CHILDREN_BY_ID } from '../redux/action';
+import Moment from 'react-moment';
 const news = [
     {
         title: 'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
@@ -33,7 +36,13 @@ const news = [
         imgSrc: 'https://careplusvn.com/files/chich-ngua-HPV-2.jpg',
     },
 ];
-const detailUser = () => {
+const detailUser = ({ match }) => {
+    console.log(match);
+    const dispatch = useDispatch();
+    const children = useSelector((state) => state.homePage?.children);
+    useEffect(() => {
+        dispatch(GET_CHILDREN_BY_ID({ id: match.params?.id }));
+    }, [match.params?.id]);
     return (
         <Row gutter={14} style={{ height: '100%' }}>
             <Col
@@ -49,8 +58,7 @@ const detailUser = () => {
                         </Col>
 
                         <Col>
-                            <h2 style={{ fontWeight: 'bold' }}>Nguyễn Ngọc Ánh</h2>
-
+                            <h2 style={{ fontWeight: 'bold' }}>{children?.data?.child?.name}</h2>
                             <div
                                 style={{
                                     display: 'flex',
@@ -58,7 +66,11 @@ const detailUser = () => {
                                 }}
                             >
                                 <SolutionOutlined />
-                                <div style={{ paddingLeft: '10px' }}>13/12/2017</div>
+                                <div style={{ paddingLeft: '10px' }}>
+                                    <Moment format="DD/MM/YYYY">
+                                        {children?.data?.child?.birth}
+                                    </Moment>
+                                </div>
                             </div>
 
                             <div
