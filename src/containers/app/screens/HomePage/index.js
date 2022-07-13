@@ -8,41 +8,8 @@ import News from './News';
 import { GET_CHILDREN_BY_PARENT_ID } from './redux/action';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-
 const cx = classNames.bind(styles);
 
-const contents = [
-    {
-        name: 'Nguyen Binh Duong',
-        time: '47 thang',
-        imgSrc: 'https://cf.shopee.vn/file/a032f8c9323d9987a546ebd23302d3a7',
-    },
-    {
-        name: 'Nguyen Anh Ngoc',
-        time: '14 thang',
-        imgSrc: 'https://cf.shopee.vn/file/441ed6fd280a316979764a06d2512a93',
-    },
-    {
-        name: 'Nguyen Van Toan',
-        time: '24 thang',
-        imgSrc: 'https://cf.shopee.vn/file/101af67ae8e8597ba05c4b9c6a9da02d',
-    },
-    {
-        name: 'Nguyen Binh Duong',
-        time: '47 thang',
-        imgSrc: 'https://cf.shopee.vn/file/a032f8c9323d9987a546ebd23302d3a7',
-    },
-    {
-        name: 'Nguyen Anh Ngoc',
-        time: '14 thang',
-        imgSrc: 'https://cf.shopee.vn/file/441ed6fd280a316979764a06d2512a93',
-    },
-    {
-        name: 'Nguyen Van Toan',
-        time: '24 thang',
-        imgSrc: 'https://cf.shopee.vn/file/101af67ae8e8597ba05c4b9c6a9da02d',
-    },
-];
 const news = [
     {
         title: 'Thông tin báo chí về tình hình triển khai vắc xin CombE Five trong Tiêm chủng mở rộng',
@@ -72,7 +39,7 @@ const news = [
 
 function index(props) {
     const dispatch = useDispatch();
-    const listChildren = useSelector((state) => state.homePage.listChildren);
+    const listChildren = useSelector((state) => state.homePage?.listChildren);
     useEffect(() => {
         dispatch(GET_CHILDREN_BY_PARENT_ID({ parentId: 2 }));
     }, []);
@@ -86,15 +53,21 @@ function index(props) {
                         return (
                             <Col xs={6}>
                                 <div className={cx('image-box')}>
-                                    <Link to="/detail-child">
-                                        <img className={cx('image')} src={children.imgSrc} />
+                                    <Link to={`/detail-child/${children.id}`}>
+                                        <img
+                                            className={cx('image')}
+                                            src="https://picsum.photos/300/400"
+                                        />
                                     </Link>
                                 </div>
                                 <div className={cx('card-content')}>
                                     <h3>{children.name}</h3>
                                 </div>
                                 <div className={cx('card-content')}>
-                                    <h4>{children.updatedAt}</h4>
+                                    <h4>
+                                        {new Date(children.birth).getMonth()}
+                                        tháng
+                                    </h4>
                                 </div>
                             </Col>
                         );

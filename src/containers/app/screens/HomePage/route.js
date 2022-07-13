@@ -20,7 +20,7 @@ export default {
 
 export const childRoutes = [
     {
-        path: '/detail-child',
+        path: '/detail-child/:id',
         exact: true,
         isPrivate: true,
         component: lazy(async () => {
