@@ -69,7 +69,7 @@ function index(props) {
     ];
     console.log('content:', contents[0].name);
     return (
-        <Row gutter={15} style={{ height: '100%' }}>
+        <Row style={{ height: '100%' }}>
             <Col span={18}>
                 <div style={{ fontSize: '16px', fontWeight: 'bold' }}>Thành viên</div>
                 <Row gutter={14}>
