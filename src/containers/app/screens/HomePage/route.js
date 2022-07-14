@@ -37,4 +37,13 @@ export const childRoutes = [
             return import('./pages/InjectionHistory');
         }),
     },
+    {
+        path: '/vaccination-regimen/:childId',
+        exact: true,
+        isPrivate: true,
+        component: lazy(async () => {
+            await initModules([homePageModule], 'app');
+            return import('./pages/VaccinationRegimen');
+        }),
+    },
 ];

@@ -85,7 +85,6 @@ export default function userReducer(state = defaultState, action) {
             };
         }
         case CHECK_VALID_TOKEN_FAIL().type: {
-            localStorage.removeItem(TOKEN_KEY);
             return {
                 ...state,
                 profile: null,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Row } from 'antd';
-import classNames from 'classnames/bind';
+
 import './Style.sass';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import News from './News';
 import { GET_CHILDREN_BY_PARENT_ID } from './redux/action';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const news = [

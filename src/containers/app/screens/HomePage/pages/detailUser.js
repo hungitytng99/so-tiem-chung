@@ -115,19 +115,28 @@ const detailUser = ({ match }) => {
                             cursor: 'pointer',
                         }}
                     >
-                        <Row
-                            style={{
-                                alignItems: 'center',
-                                borderRadius: '10px',
-                                backgroundColor: '#E5E5E5',
-                            }}
-                        >
-                            <div style={{ padding: '5px 20px' }}>
-                                <img src={iconDiagram} style={{ width: '60px' }}></img>
-                            </div>
+                        <Link to={`/vaccination-regimen/${match.params?.id}`}>
+                            <Row
+                                style={{
+                                    alignItems: 'center',
+                                    borderRadius: '10px',
+                                    backgroundColor: '#E5E5E5',
+                                }}
+                            >
+                                <div style={{ padding: '5px 20px' }}>
+                                    <img src={iconDiagram} style={{ width: '60px' }}></img>
+                                </div>
 
-                            <div style={{ paddingLeft: '20px' }}>Phác đồ tiêm chủng</div>
-                        </Row>
+                                <div
+                                    style={{
+                                        paddingLeft: '20px',
+                                        color: 'black',
+                                    }}
+                                >
+                                    Phác đồ tiêm chủng
+                                </div>
+                            </Row>
+                        </Link>
                     </div>
                     <div
                         style={{
