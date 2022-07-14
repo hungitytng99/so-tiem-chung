@@ -50,3 +50,27 @@ export function RESET_GET_CHILDREN_BY_ID(payload) {
         payload,
     };
 }
+export function GET_SCHEDULE(payload) {
+    return {
+        type: 'GET_SCHEDULE',
+        payload,
+    };
+}
+export function GET_SCHEDULE_SUCCESS(payload) {
+    return {
+        type: 'GET_SCHEDULE_SUCCESS',
+        payload,
+    };
+}
+export function GET_SCHEDULE_FAIL(payload) {
+    return {
+        type: 'GET_SCHEDULE_FAIL',
+        payload,
+    };
+}
+export function RESET_GET_SCHEDULE(payload) {
+    return {
+        type: 'RESET_GET_SCHEDULE',
+        payload,
+    };
+}
