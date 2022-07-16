@@ -3,9 +3,9 @@ import { MODULES } from 'app-configs';
 import { lazy } from 'react';
 import { initModules } from 'router/index';
 
-export const homePageModule = {
-    key: 'homePage',
-    path: 'HomePage',
+export const knowledgeModule = {
+    key: 'knowledge',
+    path: 'Knowledge',
 };
 
 export default {
@@ -13,7 +13,7 @@ export default {
     exact: true,
     isPrivate: true,
     component: lazy(async () => {
-        await initModules([homePageModule], 'app');
+        await initModules([knowledgeModule], 'app');
         return import('.');
     }),
 };

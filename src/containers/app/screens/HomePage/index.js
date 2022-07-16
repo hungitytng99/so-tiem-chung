@@ -40,6 +40,7 @@ const news = [
 function index(props) {
     const dispatch = useDispatch();
     const listChildren = useSelector((state) => state.homePage?.listChildren);
+
     useEffect(() => {
         dispatch(GET_CHILDREN_BY_PARENT_ID({ parentId: 2 }));
     }, []);
