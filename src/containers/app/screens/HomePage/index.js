@@ -44,7 +44,6 @@ function index(props) {
     const dispatch = useDispatch();
     const listChildren = useSelector((state) => state.homePage?.listChildren);
     const profile = useSelector((state) => state.user?.profile?.id);
-
     useEffect(() => {
         dispatch(GET_CHILDREN_BY_PARENT_ID({ parentId: profile }));
     }, []);
