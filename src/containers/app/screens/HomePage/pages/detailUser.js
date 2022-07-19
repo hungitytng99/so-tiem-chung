@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Col, Row } from 'antd';
-import icon from 'assets/images/sotiemchung/250796959_438751234280879_3710454219591718876_n.png';
+import iconMale from 'assets/images/sotiemchung/292405212_593354112428688_3230046090394934406_n.png';
+import iconFemale from 'assets/images/sotiemchung/250796959_438751234280879_3710454219591718876_n.png';
 import iconHistory from 'assets/images/sotiemchung/290821183_438571107896215_6949142220786622021_n.png';
 import iconDiagram from 'assets/images/sotiemchung/264234976_752854762737773_7097975190760909866_n.png';
 import iconNutrition from 'assets/images/sotiemchung/273058511_326665202806471_8882966341918769407_n.png';
@@ -36,6 +37,7 @@ const news = [
         imgSrc: 'https://careplusvn.com/files/chich-ngua-HPV-2.jpg',
     },
 ];
+// Đổi tên đi nhé. CHữ D viết hoa
 const detailUser = ({ match }) => {
     console.log(match);
     const dispatch = useDispatch();
@@ -54,11 +56,14 @@ const detailUser = ({ match }) => {
                 <div style={{ width: '500px' }}>
                     <Row>
                         <Col span={6}>
-                            <img src={icon} style={{ width: '100px' }}></img>
+                            <img
+                                src={children?.data?.gender === 'female' ? iconFemale : iconMale}
+                                style={{ width: '100px' }}
+                            ></img>
                         </Col>
 
                         <Col>
-                            <h2 style={{ fontWeight: 'bold' }}>{children?.data?.child?.name}</h2>
+                            <h2 style={{ fontWeight: 'bold' }}>{children?.data?.name}</h2>
                             <div
                                 style={{
                                     display: 'flex',
@@ -67,9 +72,7 @@ const detailUser = ({ match }) => {
                             >
                                 <SolutionOutlined />
                                 <div style={{ paddingLeft: '10px' }}>
-                                    <Moment format="DD/MM/YYYY">
-                                        {children?.data?.child?.birth}
-                                    </Moment>
+                                    <Moment format="DD/MM/YYYY">{children?.data?.birth}</Moment>
                                 </div>
                             </div>
 
@@ -93,7 +96,7 @@ const detailUser = ({ match }) => {
                             cursor: 'pointer',
                         }}
                     >
-                        <Link to="/injection-history">
+                        <Link to={`/injection-history/${children?.data?.id}`}>
                             <Row
                                 style={{
                                     alignItems: 'center',
@@ -115,19 +118,28 @@ const detailUser = ({ match }) => {
                             cursor: 'pointer',
                         }}
                     >
-                        <Row
-                            style={{
-                                alignItems: 'center',
-                                borderRadius: '10px',
-                                backgroundColor: '#E5E5E5',
-                            }}
-                        >
-                            <div style={{ padding: '5px 20px' }}>
-                                <img src={iconDiagram} style={{ width: '60px' }}></img>
-                            </div>
+                        <Link to={`/vaccination-regimen/${match.params?.id}`}>
+                            <Row
+                                style={{
+                                    alignItems: 'center',
+                                    borderRadius: '10px',
+                                    backgroundColor: '#E5E5E5',
+                                }}
+                            >
+                                <div style={{ padding: '5px 20px' }}>
+                                    <img src={iconDiagram} style={{ width: '60px' }}></img>
+                                </div>
 
-                            <div style={{ paddingLeft: '20px' }}>Phác đồ tiêm chủng</div>
-                        </Row>
+                                <div
+                                    style={{
+                                        paddingLeft: '20px',
+                                        color: 'black',
+                                    }}
+                                >
+                                    Phác đồ tiêm chủng
+                                </div>
+                            </Row>
+                        </Link>
                     </div>
                     <div
                         style={{

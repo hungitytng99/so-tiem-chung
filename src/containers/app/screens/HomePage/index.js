@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Row } from 'antd';
-import classNames from 'classnames/bind';
+
 import './Style.sass';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,9 @@ import News from './News';
 import { GET_CHILDREN_BY_PARENT_ID } from './redux/action';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import classNames from 'classnames/bind';
+import { durationInMonths } from '@progress/kendo-date-math';
+
 const cx = classNames.bind(styles);
 
 const news = [
@@ -40,9 +43,9 @@ const news = [
 function index(props) {
     const dispatch = useDispatch();
     const listChildren = useSelector((state) => state.homePage?.listChildren);
-
+    const profile = useSelector((state) => state.user?.profile?.id);
     useEffect(() => {
-        dispatch(GET_CHILDREN_BY_PARENT_ID({ parentId: 2 }));
+        dispatch(GET_CHILDREN_BY_PARENT_ID({ parentId: profile }));
     }, []);
 
     return (
@@ -66,8 +69,8 @@ function index(props) {
                                 </div>
                                 <div className={cx('card-content')}>
                                     <h4>
-                                        {new Date(children.birth).getMonth()}
-                                        tháng
+                                        {durationInMonths(new Date(children.birth), new Date()) + 1}
+                                        &nbsp;tháng
                                     </h4>
                                 </div>
                             </Col>

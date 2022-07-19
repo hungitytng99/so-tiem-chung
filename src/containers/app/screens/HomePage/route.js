@@ -25,16 +25,25 @@ export const childRoutes = [
         isPrivate: true,
         component: lazy(async () => {
             await initModules([homePageModule], 'app');
-            return import('./pages/detailUser');
+            return import('./pages/DetailUser');
         }),
     },
     {
-        path: '/injection-history',
+        path: '/injection-history/:id',
         exact: true,
         isPrivate: true,
         component: lazy(async () => {
             await initModules([homePageModule], 'app');
             return import('./pages/InjectionHistory');
+        }),
+    },
+    {
+        path: '/vaccination-regimen/:childId',
+        exact: true,
+        isPrivate: true,
+        component: lazy(async () => {
+            await initModules([homePageModule], 'app');
+            return import('./pages/VaccinationRegimen');
         }),
     },
 ];
