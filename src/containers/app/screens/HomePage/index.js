@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import { durationInMonths } from '@progress/kendo-date-math';
+import girl from 'assets/images/sotiemchung/girl.png';
+import boy from 'assets/images/sotiemchung/boy.png';
 
 const cx = classNames.bind(styles);
 
@@ -52,16 +54,25 @@ function index(props) {
     return (
         <Row style={{ height: '100%' }}>
             <Col span={18}>
-                <div style={{ fontSize: '16px', fontWeight: 'bold' }}>Thành viên</div>
+                <div
+                    style={{
+                        fontSize: '30px',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        marginLeft: '36px',
+                    }}
+                >
+                    Thành viên
+                </div>
                 <Row gutter={14}>
                     {(listChildren?.data ?? []).map((children, index) => {
                         return (
-                            <Col xs={6}>
+                            <Col xs={6} key={index}>
                                 <div className={cx('image-box')}>
                                     <Link to={`/detail-child/${children.id}`}>
                                         <img
                                             className={cx('image')}
-                                            src="https://picsum.photos/300/400"
+                                            src={children?.gender === 'male' ? boy : girl}
                                         />
                                     </Link>
                                 </div>

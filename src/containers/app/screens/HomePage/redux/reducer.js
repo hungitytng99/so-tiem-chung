@@ -11,8 +11,6 @@ import {
     GET_SCHEDULE,
     GET_SCHEDULE_FAIL,
     GET_SCHEDULE_SUCCESS,
-    RESET_GET_CHILDREN_BY_ID,
-    RESET_GET_CHILDREN_BY_PARENT_ID,
     RESET_GET_SCHEDULE,
     GET_CHILDREN_INJECT_BY_ID,
     GET_CHILDREN_INJECT_BY_ID_FAIL,
@@ -116,6 +114,8 @@ export default combineReducers({
             case RESET_GET_SCHEDULE().type: {
                 return { ...defaultState };
             }
+            default:
+                return state;
         }
     },
     childrenInjection: (state = defaultState, action) => {

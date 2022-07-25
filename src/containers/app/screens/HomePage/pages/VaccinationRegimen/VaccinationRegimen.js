@@ -57,7 +57,7 @@ function Page({ match }) {
                             <tr>
                                 <th className={cx('vaccine-text')}>
                                     Viêm gan B<br />
-                                    (4 mũi)
+                                    <span>(4 mũi)</span>
                                 </th>
                                 <td
                                     className={cx(getScheduleColor(schedules?.data?.[0]?.status))}
@@ -97,7 +97,7 @@ function Page({ match }) {
                                 <th className={cx('vaccine-text')}>
                                     Lao
                                     <br />
-                                    (1 mũi)
+                                    <span>(1 mũi)</span>
                                 </th>
                                 <td
                                     className={cx(getScheduleColor(schedules?.data?.[4]?.status))}
