@@ -4,7 +4,7 @@ import { lazy } from 'react';
 import { initModules } from 'router/index';
 
 export const injectionScheduleModule = {
-    key: 'injectionSchedule',
+    key: 'commingSchedule',
     path: 'InjectionSchedule',
 };
 

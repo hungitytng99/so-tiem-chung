@@ -1,10 +1,10 @@
 import { REQUEST_STATE } from 'app-configs';
 import { combineReducers } from 'redux';
 import {
-    GET_PATIENT_BY_ID,
-    GET_PATIENT_BY_ID_FAIL,
-    GET_PATIENT_BY_ID_SUCCESS,
-    RESET_GET_PATIENT_BY_ID,
+    GET_COMMING_SCHEDULE,
+    GET_COMMING_SCHEDULE_FAIL,
+    GET_COMMING_SCHEDULE_SUCCESS,
+    RESET_GET_COMMING_SCHEDULE,
 } from './action';
 
 const defaultState = {
@@ -13,15 +13,15 @@ const defaultState = {
 };
 
 export default combineReducers({
-    listPatient: (state = defaultState, action) => {
+    list: (state = defaultState, action) => {
         switch (action.type) {
-            case GET_PATIENT_BY_ID().type: {
+            case GET_COMMING_SCHEDULE().type: {
                 return {
                     ...state,
                     state: REQUEST_STATE.REQUEST,
                 };
             }
-            case GET_PATIENT_BY_ID_SUCCESS().type: {
+            case GET_COMMING_SCHEDULE_SUCCESS().type: {
                 const { data } = action.payload;
                 return {
                     ...state,
@@ -29,13 +29,13 @@ export default combineReducers({
                     state: REQUEST_STATE.SUCCESS,
                 };
             }
-            case GET_PATIENT_BY_ID_FAIL().type: {
+            case GET_COMMING_SCHEDULE_FAIL().type: {
                 return {
                     ...state,
                     state: REQUEST_STATE.ERROR,
                 };
             }
-            case RESET_GET_PATIENT_BY_ID().type: {
+            case RESET_GET_COMMING_SCHEDULE().type: {
                 return {
                     ...defaultState,
                 };

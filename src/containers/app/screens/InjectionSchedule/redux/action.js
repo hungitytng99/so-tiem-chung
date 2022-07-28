@@ -1,24 +1,24 @@
-export function GET_PATIENT_BY_ID(payload) {
+export function GET_COMMING_SCHEDULE(payload) {
     return {
-        type: 'GET_PATIENT_BY_ID',
+        type: 'GET_COMMING_SCHEDULE',
         payload,
     };
 }
-export function GET_PATIENT_BY_ID_SUCCESS(payload) {
+export function GET_COMMING_SCHEDULE_SUCCESS(payload) {
     return {
-        type: 'GET_PATIENT_BY_ID_SUCCESS',
+        type: 'GET_COMMING_SCHEDULE_SUCCESS',
         payload,
     };
 }
-export function GET_PATIENT_BY_ID_FAIL(payload) {
+export function GET_COMMING_SCHEDULE_FAIL(payload) {
     return {
-        type: 'GET_PATIENT_BY_ID_FAIL',
+        type: 'GET_COMMING_SCHEDULE_FAIL',
         payload,
     };
 }
-export function RESET_GET_PATIENT_BY_ID(payload) {
+export function RESET_GET_COMMING_SCHEDULE(payload) {
     return {
-        type: 'RESET_GET_PATIENT_BY_ID',
+        type: 'RESET_GET_COMMING_SCHEDULE',
         payload,
     };
 }

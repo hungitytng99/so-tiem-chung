@@ -24,7 +24,7 @@ export default function (props) {
     const userDetail = useSelector((state) => state?.user?.profile);
 
     return (
-        <Header
+        <div
             style={{
                 padding: '0px 20px',
                 backgroundColor: 'white',
@@ -32,19 +32,15 @@ export default function (props) {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 borderBottom: '1px solid #C8C8C8',
+                height: '70px',
             }}
+            className="app-header"
         >
             <div className="flex-center" style={{}}>
-                <div class="topnav">
-                    <Link to="/">
-                        <strong>
-                            <div style={{ fontSize: '20px', color: '#1558BE' }}>Sổ tiêm chủng</div>
-                        </strong>
-                    </Link>
+                <div className="topnav">
+                    <Link to="/">Sổ tiêm chủng</Link>
                     <Link to="/injection-schedule">LỊCH TIÊM</Link>
                     <Link to="/knowledge">KIẾN THỨC</Link>
-                    <Link to="/service">DỊCH VỤ</Link>
-                    <Link to="/about">Câu hỏi nổi bật</Link>
                 </div>
             </div>
 
@@ -55,30 +51,16 @@ export default function (props) {
                     alignItems: 'center',
                 }}
             >
-                <div
-                    style={{
-                        marginRight: '10px',
-                        fontWeight: '550',
-                        userSelect: 'none',
-                        width: '100px',
-                        justifyContent: 'space-around',
-                    }}
-                >
-                    {userDetail?.name}
-                </div>
-
-                <BellFilled style={{ fontSize: '32px', color: 'blue', padding: '0 5px' }} />
                 <Avatar
                     size={32}
                     style={{
-                        backgroundColor: 'blue',
+                        backgroundColor: '#1558BE',
                         padding: '0 5px',
                     }}
                 >
                     <UserOutlined />
                 </Avatar>
-
-                <div style={{ padding: '0 5px ' }}>Trung Hậu</div>
+                <div style={{ padding: '0 10px ' }}>{userDetail?.name}</div>
                 <Dropdown
                     overlay={<Menu items={userDropdownItems} onClick={onClickUserAvatar} />}
                     placement="bottomRight"
@@ -89,6 +71,6 @@ export default function (props) {
                     <CaretDownOutlined />
                 </Dropdown>
             </div>
-        </Header>
+        </div>
     );
 }

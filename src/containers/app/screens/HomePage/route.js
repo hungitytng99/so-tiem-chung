@@ -34,7 +34,7 @@ export const childRoutes = [
         isPrivate: true,
         component: lazy(async () => {
             await initModules([homePageModule], 'app');
-            return import('./pages/InjectionHistory');
+            return import('./pages/InjectionHistory/InjectionHistory');
         }),
     },
     {

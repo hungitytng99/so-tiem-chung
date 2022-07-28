@@ -48,10 +48,12 @@ const detailUser = ({ match }) => {
     return (
         <Row gutter={14} style={{ height: '100%' }}>
             <Col
-                span={18}
+                span={24}
                 style={{
                     padding: '10px 200px',
+                    marginBottom: '300px',
                 }}
+                className="flex-center"
             >
                 <div style={{ width: '500px' }}>
                     <Row>
@@ -92,7 +94,7 @@ const detailUser = ({ match }) => {
                     </Row>
                     <div
                         style={{
-                            padding: '5px 0',
+                            paddingTop: '45px',
                             cursor: 'pointer',
                         }}
                     >
@@ -114,16 +116,16 @@ const detailUser = ({ match }) => {
                     </div>
                     <div
                         style={{
-                            padding: '5px 0',
+                            paddingTop: '15px',
                             cursor: 'pointer',
                         }}
                     >
                         <Link to={`/vaccination-regimen/${match.params?.id}`}>
                             <Row
                                 style={{
-                                    alignItems: 'center',
                                     borderRadius: '10px',
                                     backgroundColor: '#E5E5E5',
+                                    alignItems: 'center',
                                 }}
                             >
                                 <div style={{ padding: '5px 20px' }}>
@@ -141,51 +143,7 @@ const detailUser = ({ match }) => {
                             </Row>
                         </Link>
                     </div>
-                    <div
-                        style={{
-                            padding: '5px 0',
-                            cursor: 'pointer',
-                        }}
-                    >
-                        <Row
-                            style={{
-                                alignItems: 'center',
-                                borderRadius: '10px',
-                                backgroundColor: '#E5E5E5',
-                            }}
-                        >
-                            <div style={{ padding: '5px 20px' }}>
-                                <img src={iconNutrition} style={{ width: '60px' }}></img>
-                            </div>
-                            <div style={{ paddingLeft: '20px' }}>Dinh dưỡng</div>
-                        </Row>
-                    </div>
                 </div>
-            </Col>
-
-            <Col span={6}>
-                <div
-                    style={{
-                        fontSize: '36px',
-                        fontWeight: 700,
-                        lineHeight: ' 42.19px ',
-                        height: '55px',
-                    }}
-                >
-                    Kiến thức
-                </div>
-                {news.map((myNew, index) => {
-                    return (
-                        <News
-                            key={index}
-                            title={myNew.title}
-                            description={myNew.description}
-                            author={myNew.author}
-                            time={myNew.time}
-                            imgSrc={myNew.imgSrc}
-                        ></News>
-                    );
-                })}
             </Col>
         </Row>
     );

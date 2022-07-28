@@ -1,20 +1,25 @@
 import { REQUEST_STATE } from 'app-configs';
-import { apiGetPatientById } from 'app-data/injectionSchedule';
+import { apiGetChildrenByParentId } from 'app-data/child';
+import { apiGetCommingSchedules } from 'app-data/schedule';
 import { delay, put, takeLatest, call } from 'redux-saga/effects';
-import { GET_PATIENT_BY_ID, GET_PATIENT_BY_ID_SUCCESS, GET_PATIENT_BY_ID_FAIL } from './action';
+import {
+    GET_COMMING_SCHEDULE,
+    GET_COMMING_SCHEDULE_FAIL,
+    GET_COMMING_SCHEDULE_SUCCESS,
+} from './action';
 
-function* getPatientById({ type, payload }) {
+function* getCommingSchedule({ type, payload }) {
     const { parentId } = payload;
     try {
-        const response = yield call(apiGetPatientById, parentId);
+        const response = yield call(apiGetCommingSchedules, parentId);
         if (response.state === REQUEST_STATE.SUCCESS) {
             yield put(
-                GET_PATIENT_BY_ID_SUCCESS({
-                    data: response?.data,
+                GET_COMMING_SCHEDULE_SUCCESS({
+                    data: response?.data ?? [],
                 }),
             );
         } else {
-            yield put(GET_PATIENT_BY_ID_FAIL());
+            yield put(GET_COMMING_SCHEDULE_FAIL());
         }
     } catch (error) {
         console.log('error: ', error);
@@ -22,5 +27,5 @@ function* getPatientById({ type, payload }) {
 }
 
 export default function* () {
-    yield takeLatest(GET_PATIENT_BY_ID().type, getPatientById);
+    yield takeLatest(GET_COMMING_SCHEDULE().type, getCommingSchedule);
 }
